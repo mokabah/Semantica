@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Semantica: Semantic Understanding & Meaning-Preserving Paraphrase Toolkit"
+type: software
+version: 0.1.0
+date-released: 2026-11-13
+license: MIT
+repository-code: "https://github.com/meworo/Semantica"
+abstract: >-
+  A research toolkit for analysing semantic, contextual, pragmatic and epistemic
+  information in a source text and for verifying whether a candidate paraphrase
+  preserves it, with explicit statuses for cases that need a model or a human reader.
+keywords:
+  - computational linguistics
+  - paraphrase
+  - meaning preservation
+  - semantic evaluation
+authors:
+  - family-names: Ubaidillah
+    given-names: Mohamad Iksan

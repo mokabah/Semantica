@@ -1,0 +1,763 @@
+{
+  "name": "Semantica Meaning Preservation Evaluation Benchmark",
+  "version": "0.1.0",
+  "annotation": "All gold labels were assigned by the toolkit developer. They have not been validated by independent annotators and the set is too small for general claims.",
+  "cases": [
+    {
+      "id": "core-001",
+      "phenomenon": "paraphrase_preserving",
+      "source": "Social media may influence how individuals interpret information.",
+      "candidate": "Social media can affect the way people understand information.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {
+        "modality_preservation": "passed",
+        "claim_strength_preservation": "passed"
+      },
+      "notes": "Reference case A from the experiment specification: may/can are one possibility class; influence/affect, individuals/people and interpret/understand are treated as synonyms."
+    },
+    {
+      "id": "core-002",
+      "phenomenon": "claim_strength",
+      "source": "Social media may influence how individuals interpret information.",
+      "candidate": "Social media determines how people think.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "modality_preservation": "failed",
+        "claim_strength_preservation": "failed",
+        "proposition_preservation": "requires_review"
+      },
+      "notes": "Reference case B: possibility is replaced by a plain assertion and a weak causal verb by a strong one."
+    },
+    {
+      "id": "core-003",
+      "phenomenon": "claim_strength",
+      "source": "Social media may influence behavior.",
+      "candidate": "Social media determines behavior.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "semantic_similarity": "requires_model",
+        "modality_preservation": "failed",
+        "negation_preservation": "passed",
+        "proposition_preservation": "requires_review"
+      },
+      "notes": "Example report from the specification."
+    },
+    {
+      "id": "par-001",
+      "phenomenon": "paraphrase_preserving",
+      "source": "The company will increase prices.",
+      "candidate": "The firm will boost prices.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {},
+      "notes": "Synonym substitution in subject and verb."
+    },
+    {
+      "id": "par-002",
+      "phenomenon": "paraphrase_preserving",
+      "source": "Researchers examine the data.",
+      "candidate": "Scientists inspect the data.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {},
+      "notes": "Synonym substitution in subject and verb."
+    },
+    {
+      "id": "par-003",
+      "phenomenon": "paraphrase_preserving",
+      "source": "The policy was criticized by experts.",
+      "candidate": "Experts criticized the policy.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {
+        "proposition_preservation": "passed"
+      },
+      "notes": "Passive to active with the agent expressed."
+    },
+    {
+      "id": "par-004",
+      "phenomenon": "paraphrase_preserving",
+      "source": "A student wrote the essay.",
+      "candidate": "The essay was written by a student.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {
+        "proposition_preservation": "passed"
+      },
+      "notes": "Active to passive with the agent expressed."
+    },
+    {
+      "id": "par-005",
+      "phenomenon": "paraphrase_preserving",
+      "source": "Students often fail the exam.",
+      "candidate": "Pupils frequently fail the exam.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {},
+      "notes": "Frequency adverbs of the same class."
+    },
+    {
+      "id": "par-006",
+      "phenomenon": "paraphrase_preserving",
+      "source": "The city banned smoking in parks.",
+      "candidate": "The city prohibited smoking in parks.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {},
+      "notes": "Verb synonym with different inflection."
+    },
+    {
+      "id": "par-007",
+      "phenomenon": "paraphrase_preserving",
+      "source": "The committee approved the proposal.",
+      "candidate": "The committee approved the proposal.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {},
+      "notes": "Identity sanity check."
+    },
+    {
+      "id": "par-008",
+      "phenomenon": "paraphrase_preserving",
+      "source": "The company hired the engineer.",
+      "candidate": "The firm employed the engineer.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {},
+      "notes": "hire and employ are not recorded as synonyms, so a correct paraphrase is sent to review.",
+      "known_limitation": true,
+      "limitation_note": "Lexicon gap: the system is conservative and returns requires_human_review."
+    },
+    {
+      "id": "par-009",
+      "phenomenon": "paraphrase_preserving",
+      "source": "The company hired 50 workers.",
+      "candidate": "The company hired fifty workers.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {
+        "entity_preservation": "passed"
+      },
+      "notes": "Numeral written as digits and as a word."
+    },
+    {
+      "id": "par-010",
+      "phenomenon": "paraphrase_preserving",
+      "source": "Prices rose because demand increased.",
+      "candidate": "Prices rose due to increased demand.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {
+        "relation_preservation": "passed"
+      },
+      "notes": "Causal connective alternation with the same direction."
+    },
+    {
+      "id": "par-011",
+      "phenomenon": "paraphrase_preserving",
+      "source": "If it rains, the match will be cancelled.",
+      "candidate": "The match will be cancelled if it rains.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {
+        "relation_preservation": "passed"
+      },
+      "notes": "Conditional with fronted and postposed antecedent."
+    },
+    {
+      "id": "par-012",
+      "phenomenon": "paraphrase_preserving",
+      "source": "The drug appears to reduce symptoms.",
+      "candidate": "The drug seems to reduce symptoms.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {
+        "modality_preservation": "passed"
+      },
+      "notes": "Two appearance markers."
+    },
+    {
+      "id": "neg-001",
+      "phenomenon": "negation",
+      "source": "The treatment is effective.",
+      "candidate": "The treatment is not effective.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "negation_preservation": "failed"
+      },
+      "notes": "Explicit negation inserted."
+    },
+    {
+      "id": "neg-002",
+      "phenomenon": "negation",
+      "source": "Social media may influence behavior.",
+      "candidate": "Social media may not influence behavior.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "negation_preservation": "failed",
+        "modality_preservation": "passed"
+      },
+      "notes": "Negation inserted after a modal."
+    },
+    {
+      "id": "neg-003",
+      "phenomenon": "negation",
+      "source": "The committee approved the plan.",
+      "candidate": "The committee did not approve the plan.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "negation_preservation": "failed"
+      },
+      "notes": "Do-support negation."
+    },
+    {
+      "id": "neg-004",
+      "phenomenon": "negation",
+      "source": "Nobody attended the meeting.",
+      "candidate": "Everyone attended the meeting.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "negation_preservation": "failed",
+        "quantifier_preservation": "failed"
+      },
+      "notes": "Implicit negation replaced by a universal."
+    },
+    {
+      "id": "neg-005",
+      "phenomenon": "negation",
+      "source": "The result is not unlikely.",
+      "candidate": "The result is likely.",
+      "contexts": [],
+      "gold_status": "requires_human_review",
+      "gold_checks": {},
+      "notes": "Litotes: a human reader would decide whether the two are equivalent.",
+      "known_limitation": true,
+      "limitation_note": "Negation parity is compared mechanically, so the system reports a shift."
+    },
+    {
+      "id": "mod-001",
+      "phenomenon": "modality",
+      "source": "The drug may reduce symptoms.",
+      "candidate": "The drug reduces symptoms.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "modality_preservation": "failed"
+      },
+      "notes": "Possibility removed."
+    },
+    {
+      "id": "mod-002",
+      "phenomenon": "modality",
+      "source": "The drug may reduce symptoms.",
+      "candidate": "The drug can reduce symptoms.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {
+        "modality_preservation": "passed"
+      },
+      "notes": "may and can share the possibility class."
+    },
+    {
+      "id": "mod-003",
+      "phenomenon": "modality",
+      "source": "Prices might rise.",
+      "candidate": "Prices must rise.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "modality_preservation": "failed"
+      },
+      "notes": "Possibility replaced by necessity."
+    },
+    {
+      "id": "mod-004",
+      "phenomenon": "modality",
+      "source": "The new policy is likely to reduce emissions.",
+      "candidate": "The new policy will reduce emissions.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "modality_preservation": "failed"
+      },
+      "notes": "Probability replaced by a plain prediction."
+    },
+    {
+      "id": "qua-001",
+      "phenomenon": "quantifier",
+      "source": "Some students passed the exam.",
+      "candidate": "All students passed the exam.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "quantifier_preservation": "failed"
+      },
+      "notes": "Existential to universal."
+    },
+    {
+      "id": "qua-002",
+      "phenomenon": "quantifier",
+      "source": "Most voters supported the measure.",
+      "candidate": "Many voters supported the measure.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "quantifier_preservation": "failed"
+      },
+      "notes": "Majority weakened to many."
+    },
+    {
+      "id": "qua-003",
+      "phenomenon": "quantifier",
+      "source": "Students sometimes miss class.",
+      "candidate": "Students always miss class.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "quantifier_preservation": "failed"
+      },
+      "notes": "Frequency strengthened."
+    },
+    {
+      "id": "qua-004",
+      "phenomenon": "quantifier",
+      "source": "Not all students passed.",
+      "candidate": "Some students did not pass.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {},
+      "notes": "Logically equivalent, but expressed with different quantifier classes.",
+      "known_limitation": true,
+      "limitation_note": "The quantifier classes not_all and some are not recorded as equivalent; the system reports a shift."
+    },
+    {
+      "id": "qua-005",
+      "phenomenon": "quantifier",
+      "source": "Students passed the exam.",
+      "candidate": "Many students passed the exam.",
+      "contexts": [],
+      "gold_status": "requires_human_review",
+      "gold_checks": {
+        "quantifier_preservation": "requires_review"
+      },
+      "notes": "A generic plural versus a quantified statement is context dependent."
+    },
+    {
+      "id": "ent-001",
+      "phenomenon": "entity_substitution",
+      "source": "The meeting is on Monday.",
+      "candidate": "The meeting is on Friday.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "entity_preservation": "failed"
+      },
+      "notes": "Day of the week replaced."
+    },
+    {
+      "id": "ent-002",
+      "phenomenon": "entity_substitution",
+      "source": "The report covers 20 studies.",
+      "candidate": "The report covers 30 studies.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "entity_preservation": "failed"
+      },
+      "notes": "Number replaced."
+    },
+    {
+      "id": "ent-003",
+      "phenomenon": "entity_substitution",
+      "source": "The car is red.",
+      "candidate": "The car is blue.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "entity_preservation": "failed"
+      },
+      "notes": "Colour replaced."
+    },
+    {
+      "id": "ent-004",
+      "phenomenon": "entity_substitution",
+      "source": "The mayor met Maria in Paris.",
+      "candidate": "The mayor met Maria in London.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "entity_preservation": "failed"
+      },
+      "notes": "Place name replaced."
+    },
+    {
+      "id": "ent-005",
+      "phenomenon": "entity_substitution",
+      "source": "Google announced the update.",
+      "candidate": "Microsoft announced the update.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {},
+      "notes": "Sentence-initial organisation replaced.",
+      "known_limitation": true,
+      "limitation_note": "Sentence-initial names are not recognised as proper nouns; the system returns requires_human_review."
+    },
+    {
+      "id": "ent-006",
+      "phenomenon": "numbers",
+      "source": "Three students passed.",
+      "candidate": "Four students passed.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "entity_preservation": "failed"
+      },
+      "notes": "Numeral replaced."
+    },
+    {
+      "id": "rol-001",
+      "phenomenon": "subject_object",
+      "source": "Dogs chase cats.",
+      "candidate": "Cats chase dogs.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "proposition_preservation": "failed"
+      },
+      "notes": "Agent and patient exchanged."
+    },
+    {
+      "id": "rol-002",
+      "phenomenon": "subject_object",
+      "source": "The teacher praised the student.",
+      "candidate": "The student praised the teacher.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "proposition_preservation": "failed"
+      },
+      "notes": "Agent and patient exchanged."
+    },
+    {
+      "id": "rol-003",
+      "phenomenon": "action_change",
+      "source": "The company hired the engineer.",
+      "candidate": "The company fired the engineer.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "contradiction_screen": "failed"
+      },
+      "notes": "Predicate replaced by an antonym."
+    },
+    {
+      "id": "cau-001",
+      "phenomenon": "causal_relation",
+      "source": "Prices rose because demand increased.",
+      "candidate": "Demand increased because prices rose.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "relation_preservation": "failed"
+      },
+      "notes": "Cause and effect exchanged."
+    },
+    {
+      "id": "cau-002",
+      "phenomenon": "conditional_relation",
+      "source": "If it rains, the match will be cancelled.",
+      "candidate": "Unless it rains, the match will be cancelled.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "relation_preservation": "failed"
+      },
+      "notes": "if replaced by unless."
+    },
+    {
+      "id": "cau-003",
+      "phenomenon": "causal_relation",
+      "source": "The policy reduced costs.",
+      "candidate": "The policy reduced costs because of automation.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "relation_preservation": "failed"
+      },
+      "notes": "A causal claim is added that the source does not contain."
+    },
+    {
+      "id": "cst-001",
+      "phenomenon": "claim_strength",
+      "source": "The study suggests that exercise improves mood.",
+      "candidate": "The study proves that exercise improves mood.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "attribution_preservation": "failed"
+      },
+      "notes": "Tentative reporting verb replaced by a strong one."
+    },
+    {
+      "id": "cst-002",
+      "phenomenon": "claim_strength",
+      "source": "Smoking is linked to cancer.",
+      "candidate": "Smoking causes cancer.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "claim_strength_preservation": "failed"
+      },
+      "notes": "Association replaced by causation."
+    },
+    {
+      "id": "cst-003",
+      "phenomenon": "claim_strength",
+      "source": "Heavy rain contributes to flooding.",
+      "candidate": "Heavy rain causes flooding.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "claim_strength_preservation": "failed"
+      },
+      "notes": "Contribution replaced by causation."
+    },
+    {
+      "id": "att-001",
+      "phenomenon": "attribution",
+      "source": "Experts say that social media may influence behavior.",
+      "candidate": "Social media may influence behavior.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "attribution_preservation": "failed"
+      },
+      "notes": "Attribution dropped."
+    },
+    {
+      "id": "att-002",
+      "phenomenon": "attribution",
+      "source": "According to the report, emissions fell.",
+      "candidate": "The report states that emissions fell.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {
+        "attribution_preservation": "passed"
+      },
+      "notes": "Two neutral attribution frames with the same source."
+    },
+    {
+      "id": "att-003",
+      "phenomenon": "attribution",
+      "source": "Officials said the plan is safe.",
+      "candidate": "Officials claimed the plan is safe.",
+      "contexts": [],
+      "gold_status": "requires_human_review",
+      "gold_checks": {
+        "attribution_preservation": "requires_review"
+      },
+      "notes": "Neutral report replaced by a distancing report."
+    },
+    {
+      "id": "att-004",
+      "phenomenon": "attribution",
+      "source": "The company reportedly lost money.",
+      "candidate": "The company lost money.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "attribution_preservation": "failed"
+      },
+      "notes": "Reportedly dropped."
+    },
+    {
+      "id": "ctx-001",
+      "phenomenon": "context_dependent",
+      "source": "She said it was fine.",
+      "candidate": "The manager said the report was fine.",
+      "contexts": [],
+      "gold_status": "insufficient_context",
+      "gold_checks": {
+        "contextual_consistency": "insufficient_context"
+      },
+      "notes": "Pronouns replaced by noun phrases and no context supplied."
+    },
+    {
+      "id": "ctx-002",
+      "phenomenon": "context_dependent",
+      "source": "She said it was fine.",
+      "candidate": "The manager said the report was fine.",
+      "contexts": [
+        "The manager read the report."
+      ],
+      "gold_status": "requires_human_review",
+      "gold_checks": {
+        "contextual_consistency": "requires_review"
+      },
+      "notes": "The same pair with context; coreference is not implemented, so review is required."
+    },
+    {
+      "id": "ctx-003",
+      "phenomenon": "context_dependent",
+      "source": "They approved it.",
+      "candidate": "The board approved the budget.",
+      "contexts": [],
+      "gold_status": "insufficient_context",
+      "gold_checks": {
+        "contextual_consistency": "insufficient_context"
+      },
+      "notes": "Pronouns replaced by noun phrases and no context supplied."
+    },
+    {
+      "id": "ant-001",
+      "phenomenon": "antonym",
+      "source": "The company increased prices.",
+      "candidate": "The company decreased prices.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "contradiction_screen": "failed"
+      },
+      "notes": "Verb replaced by its antonym."
+    },
+    {
+      "id": "ant-002",
+      "phenomenon": "antonym",
+      "source": "The test was easy.",
+      "candidate": "The test was difficult.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "contradiction_screen": "failed"
+      },
+      "notes": "Adjective replaced by its antonym."
+    },
+    {
+      "id": "ant-003",
+      "phenomenon": "antonym",
+      "source": "The results were safe.",
+      "candidate": "The results were dangerous.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "contradiction_screen": "failed"
+      },
+      "notes": "Adjective replaced by its antonym."
+    },
+    {
+      "id": "mdf-001",
+      "phenomenon": "modifier",
+      "source": "Only teachers received the award.",
+      "candidate": "Teachers received the award.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "modifier_preservation": "failed"
+      },
+      "notes": "Exclusivity marker dropped."
+    },
+    {
+      "id": "mdf-002",
+      "phenomenon": "modifier",
+      "source": "The policy significantly reduced costs.",
+      "candidate": "The policy reduced costs.",
+      "contexts": [],
+      "gold_status": "possible_shift",
+      "gold_checks": {
+        "modifier_preservation": "caution"
+      },
+      "notes": "Degree adverb dropped; the claim may be weaker."
+    },
+    {
+      "id": "prg-001",
+      "phenomenon": "pragmatic",
+      "source": "Could you close the door?",
+      "candidate": "Close the door.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {},
+      "notes": "Both are directives, although the politeness differs.",
+      "known_limitation": true,
+      "limitation_note": "Modal handling treats 'could' as a possibility marker, so the system reports a shift."
+    },
+    {
+      "id": "prg-002",
+      "phenomenon": "pragmatic",
+      "source": "The service was excellent.",
+      "candidate": "The service was terrible.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "pragmatic_preservation": "failed"
+      },
+      "notes": "Evaluative polarity reversed."
+    },
+    {
+      "id": "prg-003",
+      "phenomenon": "pragmatic",
+      "source": "Is the report finished?",
+      "candidate": "The report is finished.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {
+        "pragmatic_preservation": "failed"
+      },
+      "notes": "Question turned into an assertion."
+    },
+    {
+      "id": "prg-004",
+      "phenomenon": "pragmatic",
+      "source": "Oh great, the server crashed again.",
+      "candidate": "The server crashed again, which is unfortunate.",
+      "contexts": [],
+      "gold_status": "preserved",
+      "gold_checks": {},
+      "notes": "Sarcasm: the literal polarity of 'great' is opposite to the intended one.",
+      "known_limitation": true,
+      "limitation_note": "Sarcasm and irony are not supported; the system reads 'great' literally."
+    },
+    {
+      "id": "dis-001",
+      "phenomenon": "discourse",
+      "source": "The plan is cheap, but it is risky.",
+      "candidate": "The plan is cheap, and it is risky.",
+      "contexts": [],
+      "gold_status": "requires_human_review",
+      "gold_checks": {
+        "discourse_preservation": "requires_review"
+      },
+      "notes": "Contrast replaced by addition."
+    },
+    {
+      "id": "dis-002",
+      "phenomenon": "discourse",
+      "source": "However, the plan failed.",
+      "candidate": "The plan failed.",
+      "contexts": [],
+      "gold_status": "requires_human_review",
+      "gold_checks": {
+        "discourse_preservation": "requires_review"
+      },
+      "notes": "A contrastive connective is dropped."
+    },
+    {
+      "id": "kfl-001",
+      "phenomenon": "known_failure",
+      "source": "Students and teachers attended.",
+      "candidate": "Students or teachers attended.",
+      "contexts": [],
+      "gold_status": "meaning_shift_detected",
+      "gold_checks": {},
+      "notes": "Conjunction replaced by disjunction.",
+      "known_limitation": true,
+      "limitation_note": "'and' versus 'or' is only visible as a partial overlap; the system reports possible_shift."
+    }
+  ]
+}
